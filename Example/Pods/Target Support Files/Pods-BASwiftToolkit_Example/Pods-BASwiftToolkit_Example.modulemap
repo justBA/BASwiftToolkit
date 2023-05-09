@@ -1,0 +1,6 @@
+framework module Pods_BASwiftToolkit_Example {
+  umbrella header "Pods-BASwiftToolkit_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

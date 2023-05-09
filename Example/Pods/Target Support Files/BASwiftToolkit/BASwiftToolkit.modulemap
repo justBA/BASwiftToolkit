@@ -1,0 +1,6 @@
+framework module BASwiftToolkit {
+  umbrella header "BASwiftToolkit-umbrella.h"
+
+  export *
+  module * { export * }
+}

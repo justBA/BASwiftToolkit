@@ -1,0 +1,22 @@
+{
+  "name": "BASwiftToolkit",
+  "version": "0.1.0",
+  "summary": "A short description of BASwiftToolkit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/An B. Nguyen/BASwiftToolkit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "An B. Nguyen": "an.nguyen@siliconstack.com.au"
+  },
+  "source": {
+    "git": "https://github.com/An B. Nguyen/BASwiftToolkit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BASwiftToolkit/Classes/**/*"
+}

@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import BASwiftToolkit
+import Combine
+import Network
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet weak var reachabilityLabel: UILabel!
+    // MARK: - Properties
+        private var cancellables = Set<AnyCancellable>()
+        private let monitorQueue = DispatchQueue(label: "monitor")
+        
+        // MARK: - Lifecycle
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            self.reachabilityLabel.textColor = .black
+            self.observeNetworkStatus()
+        }
+        
+        // MARK: - Network Status Observation
+        private func observeNetworkStatus() {
+            NWPathMonitor()
+                .publisher(queue: monitorQueue)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] status in
+                    self?.reachabilityLabel.text = status == .satisfied ?
+                        "Connection is OK" : "Connection lost"
+                }
+                .store(in: &cancellables)
+        }
 
 }
 
